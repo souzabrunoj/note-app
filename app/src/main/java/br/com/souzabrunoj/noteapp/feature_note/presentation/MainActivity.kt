@@ -1,4 +1,4 @@
-package br.com.souzabrunoj.noteapp
+package br.com.souzabrunoj.noteapp.feature_note.presentation
 
 import android.os.Bundle
 import androidx.activity.ComponentActivity
