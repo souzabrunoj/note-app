@@ -11,7 +11,6 @@ import androidx.compose.material3.lightColorScheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.Color.Companion.Blue
 import androidx.compose.ui.graphics.Color.Companion.DarkGray
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
@@ -22,7 +21,7 @@ private val DarkColorScheme = darkColorScheme(
     primary = Color.White,
     background = DarkGray,
     onBackground = Color.White,
-    surface = Blue,
+    surface = LightBlue,
     onSurface = DarkGray
 )
 
@@ -61,9 +60,10 @@ fun NoteAppTheme(
     val view = LocalView.current
     if (!view.isInEditMode) {
         SideEffect {
-            val window = (view.context as Activity).window
-            window.statusBarColor = colorScheme.primary.toArgb()
-            WindowCompat.getInsetsController(window, view).isAppearanceLightStatusBars = darkTheme
+            (view.context as Activity).window.apply {
+                statusBarColor = colorScheme.primary.toArgb()
+                WindowCompat.getInsetsController(this, view).isAppearanceLightStatusBars = darkTheme
+            }
         }
     }
 
