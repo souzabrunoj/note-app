@@ -5,12 +5,12 @@ plugins {
 
 android {
     namespace 'br.com.souzabrunoj.noteapp'
-    compileSdk 33
+    compileSdk 34
 
     defaultConfig {
         applicationId "br.com.souzabrunoj.noteapp"
         minSdk 24
-        targetSdk 33
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -44,6 +44,7 @@ android {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
         }
     }
+    buildToolsVersion '34.0.0'
 }
 
 dependencies {
