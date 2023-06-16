@@ -11,7 +11,6 @@ class AddNoteUseCase(private val repository: NoteRepository) {
         when {
             note.title.isBlank() -> throw InvalidNoteException("The title of note can't be empty.")
             note.content.isBlank() -> throw InvalidNoteException("The content of note can't be empty.")
-
             else -> repository.insertNote(note)
         }
     }

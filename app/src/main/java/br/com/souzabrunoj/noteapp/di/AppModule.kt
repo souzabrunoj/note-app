@@ -8,8 +8,9 @@ import br.com.souzabrunoj.noteapp.feature_note.data.repository.NoteRepositoryImp
 import br.com.souzabrunoj.noteapp.feature_note.domain.repository.NoteRepository
 import br.com.souzabrunoj.noteapp.feature_note.domain.use_case.AddNoteUseCase
 import br.com.souzabrunoj.noteapp.feature_note.domain.use_case.DeleteNoteUseCase
+import br.com.souzabrunoj.noteapp.feature_note.domain.use_case.GetNoteUseCase
 import br.com.souzabrunoj.noteapp.feature_note.domain.use_case.GetNotesUseCase
-import br.com.souzabrunoj.noteapp.feature_note.domain.use_case.NotesUseCases
+import br.com.souzabrunoj.noteapp.feature_note.domain.use_case.NoteUseCases
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -38,11 +39,12 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideNoteUseCases(repository: NoteRepository): NotesUseCases {
-        return NotesUseCases(
+    fun provideNoteUseCases(repository: NoteRepository): NoteUseCases {
+        return NoteUseCases(
             getNotesUseCase = GetNotesUseCase(repository),
             deleteNoteUseCase = DeleteNoteUseCase(repository),
-            addNoteUseCase = AddNoteUseCase(repository)
+            addNoteUseCase = AddNoteUseCase(repository),
+            getNoteUseCase = GetNoteUseCase(repository)
         )
     }
 }
